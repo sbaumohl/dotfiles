@@ -100,6 +100,12 @@ require("lazy").setup({
     			-- VimTeX configuration goes here, e.g.
     			vim.g.vimtex_view_method = "zathura"
   		end
+	}, 
+	{
+		"nvim-tree/nvim-web-devicons" -- more dev icons 
+	},
+	{
+		"lewis6991/gitsigns.nvim"
 	}
 }, {
 	dev = {
@@ -117,7 +123,13 @@ vim.g.mapleader = " "
 -- relative line numbers
 vim.wo.relativenumber = true
 
--- comment default mappings
 require("mason").setup()
+
+-- comment default mappings
 require("Comment").setup()
+
+-- import my own custom lua files
 require("ahhh")
+
+-- git signs 
+require('gitsigns').setup()
