@@ -22,12 +22,19 @@ require("lazy").setup({
 		"nvim-neorg/neorg",
 		dependencies = { "luarocks.nvim" },
 		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-		version = "8.7.1",
+		version = "*",
 		config = function()
 			require("neorg").setup({
 				load = {
-					["core.defaults"] = {}
-				}
+					["core.defaults"] = {},
+					["core.dirman"] = {
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+						},
+					},
+				},
 			})
 		end,
 	},

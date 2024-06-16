@@ -10,6 +10,7 @@ I tried for a while to make a pure NixOS installation. But I've realized that is
 
 Why?
     - `liblua5.1-0-dev`: for [luarocks.nvim](https://github.com/vhyrro/luarocks.nvim)
+    - Neovim 0.10+
 
 
 ```bash
