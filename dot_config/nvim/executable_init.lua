@@ -11,8 +11,26 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- require("sbaumohl")
 require("lazy").setup({
+	-- nvim-neorg notetaking plugin
+	{
+		"vhyrro/luarocks.nvim",
+		priority = 1000,
+		config = true,
+	},
+	{
+		"nvim-neorg/neorg",
+		dependencies = { "luarocks.nvim" },
+		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		version = "8.7.1",
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}
+				}
+			})
+		end,
+	},
 	-- mason lsp install manager
 	{
 		"williamboman/mason.nvim",
@@ -27,10 +45,15 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		priority = 1000,
-		opts = {},
+		opts = {
+			ensure_installed = { "c", "rust" },
+			highlight = {
+				enable = true,
+			},
+		},
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua", -- file explorer
 		version = "*",
 		lazy = false,
 		dependencies = {
@@ -40,7 +63,6 @@ require("lazy").setup({
 			require("nvim-tree").setup({})
 		end,
 	},
-
 	{
 		"m-demare/hlargs.nvim",
 	},
@@ -67,7 +89,7 @@ require("lazy").setup({
 	{ "neovim/nvim-lspconfig" },
 	{ "L3MON4D3/LuaSnip" },
 
-	-- harpoon
+	-- harpoon - switch between buffers and terminal
 	{ "ThePrimeagen/harpoon" },
 
 	-- mass commenting
@@ -87,26 +109,37 @@ require("lazy").setup({
 		version = "*",
 		dependencies = {
 			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
+			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
 			-- configurations go here
 		},
 	},
 	{
-  		"lervag/vimtex",  -- latex plugin
-  		lazy = false,     -- we don't want to lazy load VimTeX
-  		init = function()
-    			-- VimTeX configuration goes here, e.g.
-    			vim.g.vimtex_view_method = "zathura"
-  		end
-	}, 
-	{
-		"nvim-tree/nvim-web-devicons" -- more dev icons 
+		"lervag/vimtex", -- latex plugin
+		lazy = false, -- we don't want to lazy load VimTeX
+		init = function()
+			-- VimTeX configuration goes here, e.g.
+			vim.g.vimtex_view_method = "zathura"
+		end,
 	},
 	{
-		"lewis6991/gitsigns.nvim"
-	}
+		"romgrk/barbar.nvim", -- tabline
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- for git status
+			"nvim-tree/nvim-web-devicons", -- for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+			-- animation = true,
+			-- insert_at_start = true,
+			-- …etc.
+		},
+		version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	},
 }, {
 	dev = {
 		path = "~/.local/share/nvim/nix",
@@ -131,5 +164,18 @@ require("Comment").setup()
 -- import my own custom lua files
 require("ahhh")
 
--- git signs 
-require('gitsigns').setup()
+-- git signs
+require("gitsigns").setup()
+
+-- finally, enable neorg
+require("neorg").setup({
+	load = {
+		["core.neorg.dirman"] = {
+			config = {
+				workspaces = {
+					notes = "~/notes",
+				},
+			},
+		},
+	},
+})
