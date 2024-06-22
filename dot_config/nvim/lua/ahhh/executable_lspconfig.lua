@@ -37,7 +37,7 @@ require("lspconfig").pyright.setup({
 	},
 })
 
-require("lspconfig").nil_ls.setup({})
+-- require("lspconfig").nil_ls.setup({})
 
 require("lspconfig").angularls.setup({})
 

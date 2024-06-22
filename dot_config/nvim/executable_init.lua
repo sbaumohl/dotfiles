@@ -39,9 +39,7 @@ require("lazy").setup({
 		end,
 	},
 	-- mason lsp install manager
-	{
-		"williamboman/mason.nvim",
-	},
+	{ "williamboman/mason.nvim" },
 	-- tokyonight themes
 	{
 		"folke/tokyonight.nvim",
@@ -70,9 +68,7 @@ require("lazy").setup({
 			require("nvim-tree").setup({})
 		end,
 	},
-	{
-		"m-demare/hlargs.nvim",
-	},
+	{ "m-demare/hlargs.nvim" },
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -147,6 +143,14 @@ require("lazy").setup({
 		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("dashboard").setup({})
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 }, {
 	dev = {
 		path = "~/.local/share/nvim/nix",
@@ -173,16 +177,3 @@ require("ahhh")
 
 -- git signs
 require("gitsigns").setup()
-
--- finally, enable neorg
-require("neorg").setup({
-	load = {
-		["core.neorg.dirman"] = {
-			config = {
-				workspaces = {
-					notes = "~/notes",
-				},
-			},
-		},
-	},
-})
