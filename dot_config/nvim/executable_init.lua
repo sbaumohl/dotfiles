@@ -20,18 +20,21 @@ require("lazy").setup({
 	},
 	{
 		"nvim-neorg/neorg",
-		dependencies = { "luarocks.nvim" },
+		dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
 		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
 		version = "*",
+		after = "nvim-treesitter",
 		config = function()
 			require("neorg").setup({
 				load = {
 					["core.defaults"] = {},
+					["core.concealer"] = {},
 					["core.dirman"] = {
 						config = {
 							workspaces = {
 								notes = "~/notes",
 							},
+							index = "index.norg",
 						},
 					},
 				},
@@ -41,21 +44,33 @@ require("lazy").setup({
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
 	-- tokyonight themes
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- },
+	-- tree-sitter theme (neorg needs one)
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd.colorscheme("kanagawa")
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
 		priority = 1000,
 		opts = {
-			ensure_installed = { "c", "rust" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python" },
+			ignore_install = { "org" },
 			highlight = {
 				enable = true,
 			},
 		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 	{
 		"nvim-tree/nvim-tree.lua", -- file explorer
@@ -100,7 +115,6 @@ require("lazy").setup({
 		"numToStr/Comment.nvim",
 		lazy = false,
 	},
-
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "onsails/lspkind-nvim" },
 	{ "mfussenegger/nvim-lint" },
@@ -159,7 +173,7 @@ require("lazy").setup({
 })
 
 -- tokyonight colorscheme
-vim.cmd([[colorscheme tokyonight-night]])
+-- vim.cmd([[colorscheme nightfly]])
 
 -- set map leader
 vim.g.mapleader = " "

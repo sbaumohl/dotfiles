@@ -36,6 +36,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "vnsip" },
+		-- { name = "orgmode" },
 	},
 
 	window = {
