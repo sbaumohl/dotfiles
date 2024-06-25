@@ -62,7 +62,7 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		priority = 1000,
 		opts = {
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "typescript" },
 			ignore_install = { "org" },
 			highlight = {
 				enable = true,
