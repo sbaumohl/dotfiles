@@ -13,6 +13,8 @@ Why?
     - Neovim 0.10+
 
 
-```bash
-sudo apt-get install liblua5.1-0-dev
+### Installing the h264 codec for web browsers
+
+```
+rpm-ostree override remove noopenh264 --install openh264 --install mozilla-openh264
 ```
