@@ -13,3 +13,6 @@ fpath+="$HOME/.zsh/zen"
 autoload -Uz promptinit
 promptinit
 prompt zen
+
+# Created by `pipx` on 2024-08-03 06:02:05
+export PATH="$PATH:/var/home/sam/.local/bin:/var/home/sam/.local"
