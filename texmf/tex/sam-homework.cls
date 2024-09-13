@@ -38,6 +38,8 @@
 
 \newtcolorbox[auto counter]{questionbox}[1][]{
   enhanced,
+  breakable,
+  before upper=\par,
   colback=red!5!white,
   colframe=red!60!black,
   coltitle=white,
@@ -47,11 +49,21 @@
 
 \newtcolorbox[auto counter]{answerbox}[1][]{
   enhanced,
+  breakable,
   colback=cyan!5!white,
   colframe=cyan!60!black,
   coltitle=white,
   fonttitle=\bfseries,
-  title={Answer}
+  title={answer}
+}
+
+\newtcolorbox[auto counter]{continuebox}[1][]{
+  enhanced,
+  colback=cyan!5!white,
+  colframe=cyan!60!black,
+  coltitle=white,
+  fonttitle=\bfseries,
+  title={answer (continued)}
 }
 
 %------ 
@@ -63,13 +75,10 @@
 		#2
 	\end{questionbox}
 
-	% \vspace{2mm}
 
 	\begin{answerbox}
 		#3
 	\end{answerbox}
 
-	% \vspace{10mm}
   % \break
 }
-
