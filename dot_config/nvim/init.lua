@@ -18,29 +18,29 @@ require("lazy").setup({
 		priority = 1000,
 		config = true,
 	},
-	{
-		"nvim-neorg/neorg",
-		dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
-		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-		version = "*",
-		after = "nvim-treesitter",
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {},
-					["core.concealer"] = {},
-					["core.dirman"] = {
-						config = {
-							workspaces = {
-								notes = "~/notes",
-							},
-							index = "index.norg",
-						},
-					},
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"nvim-neorg/neorg",
+	-- 	dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
+	-- 	lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+	-- 	version = "*",
+	-- 	after = "nvim-treesitter",
+	-- 	config = function()
+	-- 		require("neorg").setup({
+	-- 			load = {
+	-- 				["core.defaults"] = {},
+	-- 				["core.concealer"] = {},
+	-- 				["core.dirman"] = {
+	-- 					config = {
+	-- 						workspaces = {
+	-- 							notes = "~/notes",
+	-- 						},
+	-- 						index = "index.norg",
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
 	-- tokyonight themes
@@ -63,7 +63,7 @@ require("lazy").setup({
 		priority = 1000,
 		opts = {
 			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "typescript" },
-			ignore_install = { "org" },
+			ignore_install = { "org", "latex" },
 			highlight = {
 				enable = true,
 			},
@@ -137,7 +137,10 @@ require("lazy").setup({
 		lazy = false, -- we don't want to lazy load VimTeX
 		init = function()
 			-- VimTeX configuration goes here, e.g.
-			vim.g.vimtex_view_method = "zathura"
+			vim.g.vimtex_view_method = "general"
+			vim.g.vimtex_view_general_viewer = "okular"
+			vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
+
 		end,
 	},
 	{
