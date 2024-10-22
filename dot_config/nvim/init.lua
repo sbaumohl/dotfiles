@@ -18,29 +18,6 @@ require("lazy").setup({
 		priority = 1000,
 		config = true,
 	},
-	-- {
-	-- 	"nvim-neorg/neorg",
-	-- 	dependencies = { "luarocks.nvim", "nvim-treesitter/nvim-treesitter" },
-	-- 	lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-	-- 	version = "*",
-	-- 	after = "nvim-treesitter",
-	-- 	config = function()
-	-- 		require("neorg").setup({
-	-- 			load = {
-	-- 				["core.defaults"] = {},
-	-- 				["core.concealer"] = {},
-	-- 				["core.dirman"] = {
-	-- 					config = {
-	-- 						workspaces = {
-	-- 							notes = "~/notes",
-	-- 						},
-	-- 						index = "index.norg",
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
 	-- tokyonight themes
@@ -129,7 +106,7 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
-			-- configurations go here
+			show_modified = true,
 		},
 	},
 	{
@@ -140,7 +117,6 @@ require("lazy").setup({
 			vim.g.vimtex_view_method = "general"
 			vim.g.vimtex_view_general_viewer = "okular"
 			vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
-
 		end,
 	},
 	{
@@ -168,18 +144,23 @@ require("lazy").setup({
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
-}, {
-	dev = {
-		path = "~/.local/share/nvim/nix",
-		fallback = false,
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 })
 
--- tokyonight colorscheme
--- vim.cmd([[colorscheme nightfly]])
-
 -- set map leader
 vim.g.mapleader = " "
+
+-- tabs!
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
 -- relative line numbers
 vim.wo.relativenumber = true
