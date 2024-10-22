@@ -3,7 +3,9 @@
 After experimenting with NixOS, I've determined it isn't for me. Now, I'm using Fedora Kinoite and managing my dotfiles with chezmoi. I'm keeping my dotfiles and important setup notes here.  
 
 
-https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
+Some general config ideas/tips: https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
+
+Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kinoite/troubleshooting/
 
 ## Layered Packages 
 
@@ -30,7 +32,6 @@ https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
 - neovim
 - openh264
 - openssl
-- pipx
 - plasma-wayland-protocols
 - python3.9
 - thunderbird
@@ -51,6 +52,6 @@ https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
 
 ## Installing the h264 codec for web browsers
 
-```
+```bash
 rpm-ostree override remove noopenh264 --install openh264 --install mozilla-openh264
 ```
