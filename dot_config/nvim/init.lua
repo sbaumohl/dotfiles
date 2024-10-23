@@ -11,8 +11,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
-	-- nvim-neorg notetaking plugin
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1000,
@@ -20,13 +20,7 @@ require("lazy").setup({
 	},
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
-	-- tokyonight themes
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {},
-	-- },
+
 	-- tree-sitter theme (neorg needs one)
 	{
 		"rebelot/kanagawa.nvim",
@@ -49,6 +43,7 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "InsertEnter" },
 	{
 		"nvim-tree/nvim-tree.lua", -- file explorer
 		version = "*",
@@ -153,6 +148,7 @@ require("lazy").setup({
 		---@type render.md.UserConfig
 		opts = {},
 	},
+	{ "mbbill/undotree" },
 })
 
 -- set map leader
@@ -165,6 +161,41 @@ vim.opt.tabstop = 4
 -- relative line numbers
 vim.wo.relativenumber = true
 
+-- undotree toggle
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- nvim file tree
+local NvimTreeAPI = require("nvim-tree.api")
+-- local NvimTreeTree = require("nvim-tree.tree")
+vim.keymap.set("n", "<leader>to", ":NvimTreeOpen<CR>")
+vim.keymap.set("n", "<leader>tc", NvimTreeAPI.tree.close)
+
+-- barbar tabline plugin for dealing with tabs
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Move to previous/next
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+-- Re-order to previous/next
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+-- Goto buffer in position...
+map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+
+-- Close buffer
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+
+-- lsp manager
 require("mason").setup()
 
 -- comment default mappings
