@@ -44,7 +44,7 @@
   colframe=red!60!black,
   coltitle=white,
   fonttitle=\bfseries,
-  title={Question \thetcbcounter \ifempty{#1}{\ (#1)}{}}
+  title={#1}
 }
 
 \newtcolorbox[auto counter]{answerbox}[1][]{
@@ -54,16 +54,7 @@
   colframe=cyan!60!black,
   coltitle=white,
   fonttitle=\bfseries,
-  title={answer}
-}
-
-\newtcolorbox[auto counter]{continuebox}[1][]{
-  enhanced,
-  colback=cyan!5!white,
-  colframe=cyan!60!black,
-  coltitle=white,
-  fonttitle=\bfseries,
-  title={answer (continued)}
+  title={Answer}
 }
 
 %------ 
@@ -71,7 +62,7 @@
 % 2. Question Text
 % 3. Answer
 \newcommand{\hwquestion}[3]{
-	\begin{questionbox}[#1]
+	\begin{questionbox}[Question \thetcbcounter \ifempty{#1}{\ (#1)}{}]
 		#2
 	\end{questionbox}
 
@@ -79,6 +70,11 @@
 	\begin{answerbox}
 		#3
 	\end{answerbox}
+}
 
-  % \break
+
+\newcommand{\hwansonly}[2]{
+\begin{questionbox}[Solution \thetcbcounter \ifempty{#1}{\ (#1)}{}]
+	#2
+\end{questionbox}
 }
