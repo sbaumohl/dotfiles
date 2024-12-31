@@ -48,7 +48,7 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - [zsh.zen](https://github.com/cybardev/zen.zsh)
 - [Zed](https://zed.dev/)
 - [Zen Browser](https://www.zen-browser.app/)
-
+- [Ghostty](https://ghostty.org)
 
 ## Installing the h264 codec for web browsers
 

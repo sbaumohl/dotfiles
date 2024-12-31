@@ -37,23 +37,7 @@ require("lspconfig").pyright.setup({
 	},
 })
 
--- require("lspconfig").nil_ls.setup({})
-
 require("lspconfig").angularls.setup({})
-
-require("lspconfig").rust_analyzer.setup({
-	capabilities = capabilities,
-	settings = {
-		["rust-analyzer"] = {
-			check = {
-				command = "clippy",
-			},
-			diagnostics = {
-				enable = true,
-			},
-		},
-	},
-})
 
 require("lspconfig").texlab.setup({})
 

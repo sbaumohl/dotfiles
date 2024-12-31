@@ -11,7 +11,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("lazy").setup({
 	{
 		"vhyrro/luarocks.nvim",
@@ -149,6 +148,27 @@ require("lazy").setup({
 		opts = {},
 	},
 	{ "mbbill/undotree" },
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+	{
+		"chrisgrieser/nvim-lsp-endhints",
+		event = "LspAttach",
+		opts = {}, -- required, even if empty
+	},
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	},
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {},
+	},
 })
 
 -- set map leader
@@ -175,25 +195,25 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
+map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
 -- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
 -- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 
 -- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 
 -- lsp manager
 require("mason").setup()
@@ -206,3 +226,37 @@ require("ahhh")
 
 -- git signs
 require("gitsigns").setup()
+
+-- rust ide setup
+require("lsp-endhints").setup({
+	icons = {
+		type = "󰜁 ",
+		parameter = "󰏪 ",
+		offspec = " ", -- hint kind not defined in official LSP spec
+		unknown = " ", -- hint kind is nil
+	},
+	label = {
+		truncateAtChars = 20,
+		padding = 1,
+		marginLeft = 0,
+		sameKindSeparator = ", ",
+	},
+	extmark = {
+		priority = 50,
+	},
+	autoEnableHints = true,
+})
+
+local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set("n", "<leader>a", function()
+	vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
+	-- or vim.lsp.buf.codeAction() if you don't want grouping.
+end, { silent = true, buffer = bufnr })
+vim.keymap.set(
+	"n",
+	"K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+	function()
+		vim.cmd.RustLsp({ "hover", "actions" })
+	end,
+	{ silent = true, buffer = bufnr }
+)
