@@ -1,18 +1,21 @@
 alias vi="nvim"
 alias vim="nvim"
 alias e="nvim"
+export EDITOR="nvim"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$PATH:/var/home/sam/.local/bin"
 
-# export PATH=/usr/bin/anaconda3/bin:$PATH
+if [ -f /run/.toolboxenv ] && [ $(cat /run/.containerenv | grep  "name=\"fedora.*\"" | wc -l) -gt 0 ]; then
+	# nvm
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+elif [ -f /run/.toolboxenv ] && [ $(cat /run/.containerenv | grep  "name=\"ubuntu.*\"" | wc -l) -gt 0 ]; then
+	export PATH="$PATH:/usr/local/cuda-12.6/bin"
+fi
 
 # zen.zsh
 fpath+="$HOME/.zsh/zen"
 autoload -Uz promptinit
 promptinit
 prompt zen
-
-# Created by `pipx` on 2024-08-03 06:02:05
-export PATH="$PATH:/var/home/sam/.local/bin:/var/home/sam/.local"
