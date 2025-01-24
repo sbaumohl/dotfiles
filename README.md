@@ -9,14 +9,12 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 
 ## Layered Packages 
 
+- bat
 - chromium
 - code
 - containerd.io
 - dnf
-- docker-buildx-plugin
-- docker-ce
-- docker-ce-cli
-- docker-compose-plugin
+- docker
 - extra-cmake-modules
 - fastfetch
 - gettext
@@ -45,13 +43,16 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 ## Other Programs
 
 - [chezmoi](https://www.chezmoi.io/)
-- [zsh.zen](https://github.com/cybardev/zen.zsh)
+- [zsh.zen](https://github.com/cybardev/zen.zsh) or [Starship](https://github.com/starship/starship)
 - [Zed](https://zed.dev/)
 - [Zen Browser](https://www.zen-browser.app/)
 - [Ghostty](https://ghostty.org)
-
 ## Installing the h264 codec for web browsers
 
 ```bash
 rpm-ostree override remove noopenh264 --install openh264 --install mozilla-openh264
 ```
+
+## Installing Nvidia drivers
+- Official Guide: https://rpmfusion.org/Howto/NVIDIA#OSTree_.28Silverblue.2FKinoite.2Fetc.29
+

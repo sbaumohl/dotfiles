@@ -15,7 +15,9 @@ elif [ -f /run/.toolboxenv ] && [ $(cat /run/.containerenv | grep  "name=\"ubunt
 fi
 
 # zen.zsh
-fpath+="$HOME/.zsh/zen"
-autoload -Uz promptinit
-promptinit
-prompt zen
+# fpath+="$HOME/.zsh/zen"
+# autoload -Uz promptinit
+# promptinit
+# prompt zen
+
+eval "$(starship init zsh)"

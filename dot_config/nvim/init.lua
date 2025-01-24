@@ -180,6 +180,7 @@ vim.opt.tabstop = 4
 
 -- relative line numbers
 vim.wo.relativenumber = true
+vim.wo.number = true
 
 -- undotree toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
