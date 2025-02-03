@@ -37,9 +37,15 @@ require("lspconfig").pyright.setup({
 	},
 })
 
-require("lspconfig").angularls.setup({})
+-- require("lspconfig").angularls.setup({})
 
 require("lspconfig").texlab.setup({})
+
+require("lspconfig").eslint.setup({
+	settings = {
+		enable = false,
+	},
+})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

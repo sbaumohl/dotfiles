@@ -13,6 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
+	{
 		"vhyrro/luarocks.nvim",
 		priority = 1000,
 		config = true,
@@ -33,7 +37,7 @@ require("lazy").setup({
 		priority = 1000,
 		opts = {
 			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "typescript" },
-			ignore_install = { "org", "latex" },
+			ignore_install = { "org" },
 			highlight = {
 				enable = true,
 			},
@@ -89,7 +93,6 @@ require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "onsails/lspkind-nvim" },
 	{ "mfussenegger/nvim-lint" },
-	{ "mhartington/formatter.nvim" },
 	{ "ckipp01/stylua-nvim" },
 	{
 		"utilyre/barbecue.nvim",
