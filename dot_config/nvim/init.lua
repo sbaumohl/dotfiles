@@ -12,11 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- conform does format on saving and allows language specific configs
 	{
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-	{
+	{ -- tbh i do not know what this does but my config breaks when I remove it
 		"vhyrro/luarocks.nvim",
 		priority = 1000,
 		config = true,
@@ -24,7 +25,7 @@ require("lazy").setup({
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
 
-	-- tree-sitter theme (neorg needs one)
+	-- tree-sitter theme
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
@@ -95,16 +96,8 @@ require("lazy").setup({
 	{ "mfussenegger/nvim-lint" },
 	{ "ckipp01/stylua-nvim" },
 	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {
-			show_modified = true,
-		},
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"lervag/vimtex", -- latex plugin
@@ -161,16 +154,26 @@ require("lazy").setup({
 		event = "LspAttach",
 		opts = {}, -- required, even if empty
 	},
+	-- {
+	-- 	"rust-lang/rust.vim",
+	-- 	ft = "rust",
+	-- 	init = function()
+	-- 		vim.g.rustfmt_autosave = 1
+	-- 	end,
+	-- },
+	-- {
+	-- 	"sphamba/smear-cursor.nvim",
+	-- 	opts = {},
+	-- },
 	{
-		"rust-lang/rust.vim",
-		ft = "rust",
-		init = function()
-			vim.g.rustfmt_autosave = 1
-		end,
+		"tpope/vim-surround",
 	},
 	{
-		"sphamba/smear-cursor.nvim",
-		opts = {},
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
 	},
 })
 
@@ -230,6 +233,9 @@ require("ahhh")
 
 -- git signs
 require("gitsigns").setup()
+
+-- lua line
+require("lualine").setup()
 
 -- rust ide setup
 require("lsp-endhints").setup({
