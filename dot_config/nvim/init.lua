@@ -188,6 +188,9 @@ vim.opt.tabstop = 4
 vim.wo.relativenumber = true
 vim.wo.number = true
 
+-- let lualine show status
+vim.opt.showmode = false
+
 -- undotree toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
