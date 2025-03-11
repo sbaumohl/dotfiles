@@ -37,7 +37,7 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		priority = 1000,
 		opts = {
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "typescript" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "python", "typescript", "latex" },
 			ignore_install = { "org" },
 			highlight = {
 				enable = true,
@@ -153,6 +153,9 @@ require("lazy").setup({
 		"chrisgrieser/nvim-lsp-endhints",
 		event = "LspAttach",
 		opts = {}, -- required, even if empty
+	},
+	{
+		"jbyuki/nabla.nvim",
 	},
 	-- {
 	-- 	"rust-lang/rust.vim",
