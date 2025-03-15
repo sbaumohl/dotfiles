@@ -17,11 +17,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-	{ -- tbh i do not know what this does but my config breaks when I remove it
-		"vhyrro/luarocks.nvim",
-		priority = 1000,
-		config = true,
-	},
 	-- mason lsp install manager
 	{ "williamboman/mason.nvim" },
 
@@ -134,15 +129,6 @@ require("lazy").setup({
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {},
-	},
 	{ "mbbill/undotree" },
 	{
 		"mrcjkb/rustaceanvim",
@@ -157,17 +143,6 @@ require("lazy").setup({
 	{
 		"jbyuki/nabla.nvim",
 	},
-	-- {
-	-- 	"rust-lang/rust.vim",
-	-- 	ft = "rust",
-	-- 	init = function()
-	-- 		vim.g.rustfmt_autosave = 1
-	-- 	end,
-	-- },
-	-- {
-	-- 	"sphamba/smear-cursor.nvim",
-	-- 	opts = {},
-	-- },
 	{
 		"tpope/vim-surround",
 	},
@@ -180,19 +155,13 @@ require("lazy").setup({
 	},
 })
 
--- set map leader
-vim.g.mapleader = " "
-
--- tabs!
+vim.g.mapleader = " " -- set map leader
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-
--- relative line numbers
-vim.wo.relativenumber = true
+vim.wo.relativenumber = true -- relative line numbers
 vim.wo.number = true
-
--- let lualine show status
-vim.opt.showmode = false
+vim.opt.showmode = false -- let lualine show status
+vim.o.ignorecase = true -- ignore case on search
 
 -- undotree toggle
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

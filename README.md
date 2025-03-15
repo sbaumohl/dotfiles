@@ -2,7 +2,6 @@
 
 After experimenting with NixOS, I've determined it isn't for me. Now, I'm using Fedora Kinoite and managing my dotfiles with chezmoi. I'm keeping my dotfiles and important setup notes here.  
 
-
 Some general config ideas/tips: https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
 
 Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kinoite/troubleshooting/
@@ -15,13 +14,11 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - containerd.io
 - dnf
 - docker
-- extra-cmake-modules
 - fastfetch
 - gettext
 - gh
 - git
 - htop
-- java-17-openjdk
 - lua-lpeg
 - lua5.1
 - lua5.1-lpeg
@@ -43,10 +40,11 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 ## Other Programs
 
 - [chezmoi](https://www.chezmoi.io/)
-- [zsh.zen](https://github.com/cybardev/zen.zsh) or [Starship](https://github.com/starship/starship)
+- [Starship](https://github.com/starship/starship)
 - [Zed](https://zed.dev/)
 - [Zen Browser](https://www.zen-browser.app/)
 - [Ghostty](https://ghostty.org)
+
 ## Installing the h264 codec for web browsers
 
 ```bash
