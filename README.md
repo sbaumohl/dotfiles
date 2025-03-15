@@ -15,6 +15,8 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - dnf
 - docker
 - fastfetch
+- fd
+- fuzzel
 - gettext
 - gh
 - git
@@ -22,7 +24,6 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - lua-lpeg
 - lua5.1
 - lua5.1-lpeg
-- luarocks
 - mozilla-openh264
 - neovim
 - openh264
@@ -35,6 +36,7 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - tmux
 - vlc-plugin-ffmpeg
 - vlc-plugin-kde
+- waybar
 - zsh
 
 ## Other Programs
