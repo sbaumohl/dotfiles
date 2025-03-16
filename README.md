@@ -15,6 +15,7 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - dnf
 - docker
 - fastfetch
+- feh
 - fd
 - fuzzel
 - gettext
