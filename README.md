@@ -26,6 +26,7 @@ Nvidia drivers/troubleshooting: https://docs.fedoraproject.org/en-US/fedora-kino
 - lua5.1-lpeg
 - mozilla-openh264
 - neovim
+- niri
 - openh264
 - openssl
 - plasma-wayland-protocols
