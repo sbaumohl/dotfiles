@@ -12,8 +12,11 @@
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super+Shift Return spawn ghostty
-riverctl map normal Super F spawn fuzzel
+
+riverctl map normal Super+Shift F spawn fuzzel
+
 riverctl spawn waybar
+riverctl spawn "feh ~/ashitaka_wallpaper.jpg"
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -148,6 +151,9 @@ done
 riverctl background-color 0x002b36
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
+
+riverctl map normal Super P send-to-output next
+riverctl map normal Super O send-to-output previous
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
