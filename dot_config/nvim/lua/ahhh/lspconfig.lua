@@ -65,15 +65,6 @@ require("lspconfig").texlab.setup({
 	},
 })
 
--- TODO: https://stackoverflow.com/questions/77633407/how-do-i-map-space-key-for-specific-filetypes-in-nvim-in-insert-mode
--- Only activate some keymappings for specific files
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>lt",
-	'<Cmd>lua require("nabla").toggle_virt()<CR>',
-	{ noremap = true, silent = true }
-)
-
 require("lspconfig").eslint.setup({
 	settings = {
 		enable = false,
