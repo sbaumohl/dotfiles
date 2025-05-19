@@ -6,7 +6,7 @@ return {
 		opts = {}, -- required, even if empty
 	},
 	-- mason lsp install manager
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	"neovim/nvim-lspconfig",
 	"onsails/lspkind-nvim",
 	"mfussenegger/nvim-lint",

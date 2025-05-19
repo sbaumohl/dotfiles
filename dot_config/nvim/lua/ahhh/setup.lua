@@ -47,9 +47,11 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 require("mini.icons").setup() -- enable extra icons
 local wk = require("which-key")
 wk.add({
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
+	{ "<leader>ff", "<cmd>Telescope git_files<cr>", desc = "Search Git Files", mode = "n" },
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer", mode = "n" },
 	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", mode = "n" },
-	{ "<leader>e", desc = "Harpoon Quick Menu" },
-	{ "<leader>tc", desc = "Close NvimTree" },
+	{ "<leader>fa", "<cmd>Telescope find_files<cr>", desc = "Search All Files", mode = "n" },
+	{ "<leader>e", desc = "Harpoon Quick Menu", mode = "n" },
+	{ "<leader>tc", desc = "Close NvimTree", mode = "n" },
+	{ "<leader>u", desc = "Open Undotree", mode = "n" },
 })

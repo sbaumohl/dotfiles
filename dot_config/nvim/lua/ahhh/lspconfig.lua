@@ -37,6 +37,8 @@ require("lspconfig").pyright.setup({
 	},
 })
 
+require("lspconfig").astro.setup({})
+
 require("lspconfig").texlab.setup({
 	settings = {
 		texlab = {
