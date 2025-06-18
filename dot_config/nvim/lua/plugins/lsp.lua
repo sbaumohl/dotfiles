@@ -1,5 +1,4 @@
 return {
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{
 		"chrisgrieser/nvim-lsp-endhints",
 		event = "LspAttach",
@@ -7,7 +6,31 @@ return {
 	},
 	-- mason lsp install manager
 	"mason-org/mason.nvim",
-	"neovim/nvim-lspconfig",
+	{
+		"neovim/nvim-lspconfig",
+		-- opts = {
+		-- 	inlay_hints = { enabled = true },
+		-- },
+	},
 	"onsails/lspkind-nvim",
 	"mfussenegger/nvim-lint",
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+		config = function()
+			require("typescript-tools").setup({
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
+				settings = {
+					jsx_close_tag = {
+						enable = true,
+						filetypes = { "javascriptreact", "typescriptreact" },
+					},
+				},
+			})
+		end,
+	},
 }

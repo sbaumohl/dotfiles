@@ -1,15 +1,7 @@
-local lsp_zero = require("lsp-zero")
-
-lsp_zero.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
 -- here you can setup the language servers
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require("lspconfig").clangd.setup({
+vim.lsp.config("clangd", {
 	cmd = {
 		-- see clangd --help-hidden
 		"clangd",
@@ -24,9 +16,10 @@ require("lspconfig").clangd.setup({
 	},
 	capabilities = capabilities,
 })
-require("lspconfig").cmake.setup({ capabilities = capabilities })
-require("lspconfig").dockerls.setup({ capabilities = capabilities })
-require("lspconfig").pyright.setup({
+
+vim.lsp.config("cmake", { capabilities = capabilities })
+vim.lsp.config("dockerls", { capabilities = capabilities })
+vim.lsp.config("pyright", {
 	capabilities = capabilities,
 	settings = {
 		python = {
@@ -37,9 +30,8 @@ require("lspconfig").pyright.setup({
 	},
 })
 
-require("lspconfig").astro.setup({})
-
-require("lspconfig").texlab.setup({
+vim.lsp.config("astro", {})
+vim.lsp.config("texlab", {
 	settings = {
 		texlab = {
 			auxDirectory = "build",
@@ -67,11 +59,15 @@ require("lspconfig").texlab.setup({
 	},
 })
 
-require("lspconfig").eslint.setup({
+vim.lsp.config("eslint", {
 	settings = {
 		enable = false,
 	},
 })
+
+vim.lsp.enable({ "astro", "pyright", "eslint", "dockerls", "clangd" })
+
+-- require("typescript-tools").setup({})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
