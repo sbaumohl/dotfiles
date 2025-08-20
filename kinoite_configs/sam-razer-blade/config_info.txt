@@ -1,0 +1,88 @@
+# Fedora Kinoite System Configuration
+# Generated on: Tue Aug 19 05:59:52 PM PDT 2025
+# Hostname: sam-razer-blade
+
+## OS Information
+NAME="Fedora Linux"
+VERSION="42.20250819.0 (Kinoite)"
+RELEASE_TYPE=stable
+ID=fedora
+VERSION_ID=42
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f42"
+PRETTY_NAME="Fedora Linux 42.20250819.0 (Kinoite)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:42"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://kinoite.fedoraproject.org"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora-kinoite/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://pagure.io/fedora-kde/SIG/issues"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=42
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=42
+SUPPORT_END=2026-05-13
+VARIANT="Kinoite"
+VARIANT_ID=kinoite
+OSTREE_VERSION='42.20250819.0'
+
+## Kernel Version
+6.15.9-201.fc42.x86_64
+
+## OSTree Deployment Information
+* fedora c32dec814cc68eb72e1191c3b964a1b8e5c9da84dcd1c3f6737a552657937e09.0
+    Version: 42.20250819.0
+    origin: <unknown origin type>
+  fedora 1163dd464dd028b33e1bd3e6f30ec8a7e6828d718ddf14f34090e1d1c65fc8e2.0 (rollback)
+    Version: 42.20250712.0
+    origin: <unknown origin type>
+
+## RPM-OSTree Status
+State: idle
+Deployments:
+● fedora:fedora/42/x86_64/kinoite
+                  Version: 42.20250819.0 (2025-08-19T03:46:25Z)
+               BaseCommit: 6e8fffc53e343ec4740364a2dcfa4a196db7941b6ff014fbe7f5acc8fa327ab8
+             GPGSignature: Valid signature by B0F4950458F69E1150C6C5EDC8AC4916105EF944
+      RemovedBasePackages: noopenh264 2.5.0-2.fc42
+          LayeredPackages: akmod-nvidia akmods bat chromium code containerd.io
+                           docker-buildx-plugin docker-ce docker-ce-cli
+                           docker-compose-plugin fastfetch foot fuzzel gettext gh git
+                           gnome-keyring gnome-keyring-pam gparted htop hyprland
+                           kmod-nvidia lua-lpeg lua5.1 lua5.1-lpeg mozilla-openh264 neovim
+                           network-manager-applet NetworkManager-tui openh264
+                           plasma-wayland-protocols python3.9 river rpmfusion-free-release
+                           rpmfusion-nonfree-release seahorse starship swaybg
+                           SwayNotificationCenter thunderbird tlp tlp-rdw tmux
+                           vlc-plugin-kde waybar xorg-x11-drv-nvidia
+                           xorg-x11-drv-nvidia-cuda xwayland-satellite zsh
+            LocalPackages: zoom-6.1.1.443-1.x86_64
+
+  fedora:fedora/42/x86_64/kinoite
+                  Version: 42.20250712.0 (2025-07-12T01:09:41Z)
+               BaseCommit: 9234d429664132d09603cda1144b744d783b1175558c11b97bd5f73142f6cf79
+             GPGSignature: Valid signature by B0F4950458F69E1150C6C5EDC8AC4916105EF944
+      RemovedBasePackages: noopenh264 2.5.0-2.fc42
+          LayeredPackages: akmod-nvidia akmods bat chromium code containerd.io
+                           docker-buildx-plugin docker-ce docker-ce-cli
+                           docker-compose-plugin fastfetch foot fuzzel gettext gh git
+                           gnome-keyring gnome-keyring-pam gparted htop hyprland
+                           kmod-nvidia lua-lpeg lua5.1 lua5.1-lpeg mozilla-openh264 neovim
+                           network-manager-applet NetworkManager-tui openh264
+                           plasma-wayland-protocols python3.9 river rpmfusion-free-release
+                           rpmfusion-nonfree-release seahorse starship swaybg
+                           SwayNotificationCenter thunderbird tlp tlp-rdw tmux
+                           vlc-plugin-kde waybar xorg-x11-drv-nvidia
+                           xorg-x11-drv-nvidia-cuda xwayland-satellite zsh
+            LocalPackages: zoom-6.1.1.443-1.x86_64
+
+## Enabled Repositories
+               BaseCommit: 6e8fffc53e343ec4740364a2dcfa4a196db7941b6ff014fbe7f5acc8fa327ab8
+                   Commit: c32dec814cc68eb72e1191c3b964a1b8e5c9da84dcd1c3f6737a552657937e09
+
+## Active Remotes
+fedora          https://ostree.fedoraproject.org
+fedora-compose  https://kojipkgs.fedoraproject.org/compose/ostree/repo/
+nvidia          https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/
