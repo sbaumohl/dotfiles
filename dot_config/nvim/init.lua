@@ -58,6 +58,7 @@ vim.wo.relativenumber = true -- relative line numbers
 vim.wo.number = true
 vim.opt.showmode = false -- let lualine show status
 vim.o.ignorecase = true -- ignore case on search
+vim.o.swapfile = false
 
 -- import my own custom lua files
 require("ahhh")

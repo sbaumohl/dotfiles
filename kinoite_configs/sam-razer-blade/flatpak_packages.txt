@@ -1,5 +1,5 @@
 # Flatpak packages for sam-razer-blade
-# Generated on: Tue Aug 19 05:59:53 PM PDT 2025
+# Generated on: Tue Aug 19 07:09:51 PM PDT 2025
 # Install with: cat flatpak_packages.txt | grep -v '^#' | xargs flatpak install -y
 
 app.zen_browser.zen
