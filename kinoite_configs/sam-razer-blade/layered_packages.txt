@@ -1,5 +1,5 @@
 # Layered packages for sam-razer-blade
-# Generated on: Tue Aug 19 07:45:54 PM PDT 2025
+# Generated on: Sat Sep  6 09:02:58 PM PDT 2025
 # Install with: rpm-ostree install $(cat layered_packages.txt | grep -v '^#' | tr '\n' ' ')
 
 akmod-nvidia
@@ -34,7 +34,6 @@ NetworkManager-tui
 openh264
 plasma-wayland-protocols
 python3.9
-river
 rpmfusion-free-release
 rpmfusion-nonfree-release
 seahorse
