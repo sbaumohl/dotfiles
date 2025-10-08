@@ -33,4 +33,9 @@ return {
 			})
 		end,
 	},
+	"whonore/Coqtail",
+	"tomtomjhj/coq-lsp.nvim",
+	{
+		"ms-jpq/coq_nvim",
+	},
 }

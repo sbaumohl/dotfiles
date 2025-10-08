@@ -1,16 +1,16 @@
 # Fedora Kinoite System Configuration
-# Generated on: Sat Sep  6 09:02:57 PM PDT 2025
+# Generated on: Wed Oct  8 05:07:13 PM CDT 2025
 # Hostname: sam-razer-blade
 
 ## OS Information
 NAME="Fedora Linux"
-VERSION="42.20250827.0 (Kinoite)"
+VERSION="42.20251004.0 (Kinoite)"
 RELEASE_TYPE=stable
 ID=fedora
 VERSION_ID=42
 VERSION_CODENAME=""
 PLATFORM_ID="platform:f42"
-PRETTY_NAME="Fedora Linux 42.20250827.0 (Kinoite)"
+PRETTY_NAME="Fedora Linux 42.20251004.0 (Kinoite)"
 ANSI_COLOR="0;38;2;60;110;180"
 LOGO=fedora-logo-icon
 CPE_NAME="cpe:/o:fedoraproject:fedora:42"
@@ -26,14 +26,14 @@ REDHAT_SUPPORT_PRODUCT_VERSION=42
 SUPPORT_END=2026-05-13
 VARIANT="Kinoite"
 VARIANT_ID=kinoite
-OSTREE_VERSION='42.20250827.0'
+OSTREE_VERSION='42.20251004.0'
 
 ## Kernel Version
-6.15.10-200.fc42.x86_64
+6.16.9-200.fc42.x86_64
 
 ## Enabled Repositories
-               BaseCommit: 0a6d0c856d24e7e27090ac423cb2f2382fa3c70fd64ed5d40160f2f6ca8fa25f
-                   Commit: 06824ea21b8c7e3f38f7ecafe539789a120b47371ba98c938b7f5515caf66228
+               BaseCommit: cdf29f4663246b1d869be79b5ee12f9dde93a1cd034fe8dc7eb05e708556e850
+                   Commit: 21f89cf3e99963cd151201f2d77bc389869cb5384c6f02128832bdffed59c2c1
 
 ## Active Remotes
 fedora          https://ostree.fedoraproject.org

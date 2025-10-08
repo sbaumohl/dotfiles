@@ -65,7 +65,33 @@ vim.lsp.config("eslint", {
 	},
 })
 
-vim.lsp.enable({ "astro", "pyright", "eslint", "dockerls", "clangd" })
+vim.lsp.config("svelte", {})
+
+-- vim.lsp.config("coq-lsp", {})
+require("lspconfig").coq_lsp.setup({
+	cmd = { "coq-lsp" },
+	filetypes = { "coq" },
+	root_dir = require("lspconfig").util.root_pattern("_CoqProject", ".git", "."),
+	on_attach = function(client, bufnr)
+		print("coq-lsp attached successfully!")
+		-- Add your keymaps here
+		local opts = { buffer = bufnr }
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	end,
+	settings = {
+		coq_lsp = {
+			-- Add any coq-lsp specific settings here
+		},
+	},
+})
+vim.filetype.add({
+	extension = {
+		v = "coq",
+	},
+})
+
+vim.lsp.enable({ "astro", "pyright", "eslint", "dockerls", "clangd", "coq-lsp", "svelte" })
 
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })

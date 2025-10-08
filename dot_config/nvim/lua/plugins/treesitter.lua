@@ -13,6 +13,7 @@ return {
 			ensure_installed = {
 				"bash",
 				"c",
+				"css",
 				"diff",
 				"lua",
 				"vim",
@@ -29,6 +30,8 @@ return {
 				"html",
 				"lua",
 				"regex",
+				"typst",
+				"svelte",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

@@ -14,6 +14,7 @@ require("conform").setup({
 		html = { "prettierd", "prettier" },
 		css = { "prettierd", "prettier" },
 		latex = { "latexindent" },
+		astro = { "prettierd", "prettier" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
