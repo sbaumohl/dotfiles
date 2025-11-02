@@ -1,5 +1,5 @@
 # Layered packages for sam-razer-blade
-# Generated on: Wed Oct  8 05:07:14 PM CDT 2025
+# Generated on: Sun Nov  2 11:15:48 AM CST 2025
 # Install with: rpm-ostree install $(cat layered_packages.txt | grep -v '^#' | tr '\n' ' ')
 
 akmod-nvidia
@@ -22,6 +22,7 @@ gmp-devel
 gnome-keyring
 gnome-keyring-pam
 gparted
+helix
 htop
 hyprland
 kmod-nvidia

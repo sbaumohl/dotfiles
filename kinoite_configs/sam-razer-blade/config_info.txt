@@ -1,5 +1,5 @@
 # Fedora Kinoite System Configuration
-# Generated on: Wed Oct  8 05:07:13 PM CDT 2025
+# Generated on: Sun Nov  2 11:15:47 AM CST 2025
 # Hostname: sam-razer-blade
 
 ## OS Information
@@ -33,7 +33,7 @@ OSTREE_VERSION='42.20251004.0'
 
 ## Enabled Repositories
                BaseCommit: cdf29f4663246b1d869be79b5ee12f9dde93a1cd034fe8dc7eb05e708556e850
-                   Commit: 21f89cf3e99963cd151201f2d77bc389869cb5384c6f02128832bdffed59c2c1
+                   Commit: f601f353347e5cf21bb9d4b8d5d5bf21fe49bfcaaa53db2b791f9973b5a27378
 
 ## Active Remotes
 fedora          https://ostree.fedoraproject.org

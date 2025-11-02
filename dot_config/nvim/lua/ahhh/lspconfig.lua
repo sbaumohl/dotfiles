@@ -14,6 +14,9 @@ vim.lsp.config("clangd", {
 		"--cross-file-rename",
 		"--header-insertion=iwyu",
 	},
+	init_options = {
+		fallbackFlags = { "--std=c++20" },
+	},
 	capabilities = capabilities,
 })
 
@@ -30,7 +33,7 @@ vim.lsp.config("pyright", {
 	},
 })
 
-vim.lsp.config("astro", {})
+vim.lsp.config("astro", { capabilities = capabilities })
 vim.lsp.config("texlab", {
 	settings = {
 		texlab = {
