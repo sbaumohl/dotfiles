@@ -1,5 +1,5 @@
 # Flatpak packages for sam-razer-blade
-# Generated on: Sun Nov  2 11:15:48 AM CST 2025
+# Generated on: Mon Jan  5 07:10:59 PM CST 2026
 # Install with: cat flatpak_packages.txt | grep -v '^#' | xargs flatpak install -y
 
 app.zen_browser.zen
@@ -9,6 +9,7 @@ com.dropbox.Client
 com.obsproject.Studio
 com.protonvpn.www
 com.spotify.Client
+com.valvesoftware.Steam
 md.obsidian.Obsidian
 me.proton.Mail
 net.ankiweb.Anki
@@ -21,6 +22,7 @@ org.kde.kolourpaint
 org.kde.krdc
 org.kde.okular
 org.libreoffice.LibreOffice
+org.signal.Signal
 org.videolan.VLC
 
 # User-installed Flatpaks:

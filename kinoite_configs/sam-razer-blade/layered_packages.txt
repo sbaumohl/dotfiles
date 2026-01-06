@@ -1,5 +1,5 @@
 # Layered packages for sam-razer-blade
-# Generated on: Sun Nov  2 11:15:48 AM CST 2025
+# Generated on: Mon Jan  5 07:10:59 PM CST 2026
 # Install with: rpm-ostree install $(cat layered_packages.txt | grep -v '^#' | tr '\n' ' ')
 
 akmod-nvidia
@@ -12,6 +12,7 @@ docker-buildx-plugin
 docker-ce
 docker-ce-cli
 docker-compose-plugin
+emacs
 fastfetch
 foot
 fuzzel
