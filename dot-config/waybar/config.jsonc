@@ -9,7 +9,7 @@
     "custom/reboot",
     "custom/power"
   ],
-  "modules-center": ["hyprland/window"],
+  "modules-center": ["hyprland/window", "hyprland/workspaces#windows"],
   "modules-right": [
     "battery",
     "pulseaudio",
@@ -49,6 +49,16 @@
     "all-outputs": true,
     "format": "{icon}",
     "on-click": "activate"
+  },
+  "hyprland/workspaces#windows": {
+    "active-only": true,
+    "format": "{windows}",
+    "workspace-taskbar": {
+        "enable": true,
+        "format": "{icon}", // Use the actual app icon
+        "icon-size": 16,    // Size of the icons in pixels
+        "icon-theme": []    // Use default system icon theme
+    }
   },
   "custom/reboot": {
     "format": "<span color='#FFD700'>  </span>",
