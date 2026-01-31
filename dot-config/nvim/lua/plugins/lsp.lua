@@ -3,7 +3,7 @@ return {
 		"j-hui/fidget.nvim",
 		event = "LspAttach",
 		opts = {}
-	}
+	},
 	{
 		"chrisgrieser/nvim-lsp-endhints",
 		event = "LspAttach",
