@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
-local config = {
-	-- enable_wayland = false
-}
+local config = wezterm.config_builder() 
+
+config.font = wezterm.font "lilex"
+
 return config

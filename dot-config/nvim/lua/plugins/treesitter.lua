@@ -2,8 +2,14 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
-			vim.cmd.colorscheme("kanagawa")
+			vim.cmd.colorscheme("tokyonight-night")
 		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
