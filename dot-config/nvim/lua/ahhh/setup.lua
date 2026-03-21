@@ -55,3 +55,5 @@ wk.add({
 	{ "<leader>tc", desc = "Close NvimTree", mode = "n" },
 	{ "<leader>u", desc = "Open Undotree", mode = "n" },
 })
+
+

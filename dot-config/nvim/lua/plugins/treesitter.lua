@@ -15,8 +15,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		priority = 1000,
-		opts = {
-			ensure_installed = {
+		config = function()
+			require('nvim-treesitter').install({
 				"bash",
 				"c",
 				"css",
@@ -38,13 +38,8 @@ return {
 				"regex",
 				"typst",
 				"svelte",
-			},
-			highlight = { enable = true },
-			indent = { enable = true },
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-		end,
+			})
+		end
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "InsertEnter" },
 	{
