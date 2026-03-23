@@ -1,5 +1,5 @@
 -- here you can setup the language servers
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
 vim.lsp.config("clangd", {
 	cmd = {
@@ -56,12 +56,17 @@ vim.lsp.config("eslint", {
 	settings = {
 		enable = true,
 	},
+	capabilities = capabilities
 })
 
-vim.lsp.config("svelte", {})
-vim.lsp.config('ruff', {})
+vim.lsp.config("svelte", {
+	capabilities = capabilities
+})
+vim.lsp.config('ruff', {
+	capabilities = capabilities
+})
 
-vim.lsp.enable({ "astro", "eslint", "dockerls", "clangd", "svelte", "ty", "ruff" })
+vim.lsp.enable({ "astro", "eslint", "dockerls", "clangd", "svelte", "ty", "ruff", "texlab", "cmake" })
 
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
@@ -78,7 +83,8 @@ vim.diagnostic.config({
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 500
-vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
-
--- enable endline hints now that lsp is enabled
-require("lsp-endhints").enable()
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  callback = function()
+	  vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})

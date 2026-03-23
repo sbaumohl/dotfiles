@@ -64,6 +64,7 @@ vim.o.swapfile = false
 require("ahhh")
 
 -- rust ide setup
+require("lsp-endhints").enable()
 require("lsp-endhints").setup({
 	icons = {
 		type = "󰜁 ",
