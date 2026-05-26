@@ -36,6 +36,7 @@ exec hyprsunset
 exec copyq --start-server
 exec dropbox
 exec systemctl --user start hyprpolkitagent
+exec swayidle -w before-sleep 'swaylock -f -c 000000'
 
 exec swayidle -w \
     timeout 300 'swaymsg "output * power off"' \

@@ -11,7 +11,7 @@ require("conform").setup({
 		javascript = { "prettierd", "prettier" },
 		javascriptreact = { "prettierd", "prettier" },
 		json = { "prettierd", "prettier" },
-		html = { "prettierd", "prettier" },
+		html = { "prettier" },
 		css = { "prettierd", "prettier" },
 		latex = { "latexindent" },
 		astro = { "prettierd", "prettier" },
