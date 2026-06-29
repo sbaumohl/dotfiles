@@ -1,0 +1,116 @@
+# Modifier key (Mod4 = Super/Windows key)
+set $mod Mod4
+
+# Terminal
+set $term wezterm
+
+# Application launcher
+set $menu fuzzel
+
+output "*" {
+	bg ~/.config/wallpapers/wp.png fill
+}
+
+output DP-1 {
+	pos 0 0
+}
+
+output DP-2 {
+	pos 0 0
+	mode 1920x1080@120Hz
+}
+
+output eDP-1 {
+	pos 1920 0
+	scale 1.5
+	resolution 2560x1600
+}
+
+bar {
+    swaybar_command waybar
+}
+
+exec /usr/lib/pam_kwallet_init
+exec nm-applet --indicator
+exec hyprsunset
+exec copyq --start-server
+exec dropbox
+exec systemctl --user start hyprpolkitagent
+exec swayidle -w before-sleep 'swaylock -f -c 000000'
+
+exec swayidle -w \
+    timeout 300 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    timeout 600 'systemctl suspend'
+
+# Screenshots
+bindsym $mod+s exec hyprshot -m region -o ~/Screenshots/
+
+
+# Key bindings (also bound to Alt for nested testing)
+bindsym $mod+Return exec $term
+bindsym Mod1+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+q kill
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'
+
+# Focus movement
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+
+# Layout
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+
+# Reload config
+bindsym $mod+Shift+c reload
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+
+
+# Include system defaults for input, etc.
+
+# Laptop multimedia keys for volume and LCD brightness
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl -e4 -n2 set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl -e4 -n2 set 5%-
+
+# # Requires playerctl
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+
+include /etc/sway/config.d/*
