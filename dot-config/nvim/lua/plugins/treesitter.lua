@@ -1,14 +1,12 @@
 return {
-	{
-		"rebelot/kanagawa.nvim"
-	},
+	"rebelot/kanagawa.nvim", -- not a default right now, but I like to keep it around
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {},
 		config = function()
-			vim.cmd.colorscheme("tokyonight-night")
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 	{
@@ -19,6 +17,7 @@ return {
 			require('nvim-treesitter').install({
 				"bash",
 				"c",
+				"cpp",
 				"css",
 				"diff",
 				"lua",
@@ -39,21 +38,23 @@ return {
 				"typst",
 				"svelte",
 			})
+
+			-- must be started per-buffer. Enable TS highlighting for any
+			-- filetype that has an installed parser
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
+			})
 		end
 	},
-	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "InsertEnter" },
 	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
-	},
-	{
-		"folke/which-key.nvim",
-		opts = {
-			spec = {
-				{ "<BS>", desc = "Decrement Selection", mode = "x" },
-				{ "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
-			},
-		},
+		'nvim-telescope/telescope.nvim',
+		version = '*',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			-- optional but recommended
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		}
 	},
 }

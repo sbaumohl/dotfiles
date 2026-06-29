@@ -1,28 +1,3 @@
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
-		python = { "ruff", "isort", "black" },
-		-- You can customize some of the format options for the filetype (:help conform.format)
-		rust = { "rustfmt", lsp_format = "fallback" },
-		-- Conform will run the first available formatter
-		typescript = { "prettierd", "prettier" },
-		typescriptreact = { "prettierd", "prettier" },
-		javascript = { "prettierd", "prettier" },
-		javascriptreact = { "prettierd", "prettier" },
-		json = { "prettierd", "prettier" },
-		html = { "prettier" },
-		css = { "prettierd", "prettier" },
-		latex = { "latexindent" },
-		astro = { "prettierd", "prettier" },
-	},
-	format_on_save = {
-		-- These options will be passed to conform.format()
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
-})
-
 vim.api.nvim_create_user_command("Format", function(args)
 	local range = nil
 	if args.count ~= -1 then
@@ -46,6 +21,7 @@ end, {
 	desc = "Disable autoformat-on-save",
 	bang = true,
 })
+
 vim.api.nvim_create_user_command("FormatEnable", function()
 	vim.b.disable_autoformat = false
 	vim.g.disable_autoformat = false

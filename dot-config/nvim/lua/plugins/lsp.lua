@@ -11,13 +11,7 @@ return {
 	},
 	-- mason lsp install manager
 	"mason-org/mason.nvim",
-	{
-		"neovim/nvim-lspconfig",
-		-- opts = {
-		-- 	inlay_hints = { enabled = true },
-		-- },
-	},
-	"onsails/lspkind-nvim",
+	"neovim/nvim-lspconfig",
 	"mfussenegger/nvim-lint",
 	{
 		"pmizio/typescript-tools.nvim",

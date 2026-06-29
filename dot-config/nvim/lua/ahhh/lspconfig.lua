@@ -1,5 +1,6 @@
 -- here you can setup the language servers
-local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
 
 vim.lsp.config("clangd", {
 	cmd = {
@@ -16,14 +17,19 @@ vim.lsp.config("clangd", {
 	},
 	init_options = {
 		fallbackFlags = { "--std=c++20" },
-	},
-	capabilities = capabilities,
+	}
 })
 
-vim.lsp.config("cmake", { capabilities = capabilities })
-vim.lsp.config("dockerls", { capabilities = capabilities })
-
-vim.lsp.config("astro", { capabilities = capabilities })
+-- astro-ls requires a typescript SDK; use the one bundled with the mason
+-- astro-language-server install so it works outside a node project too.
+vim.lsp.config("astro", {
+	init_options = {
+		typescript = {
+			tsdk = vim.fn.stdpath("data")
+				.. "/mason/packages/astro-language-server/node_modules/typescript/lib",
+		},
+	},
+})
 vim.lsp.config("texlab", {
 	settings = {
 		texlab = {
@@ -55,18 +61,26 @@ vim.lsp.config("texlab", {
 vim.lsp.config("eslint", {
 	settings = {
 		enable = true,
-	},
-	capabilities = capabilities
+	}
 })
 
-vim.lsp.config("svelte", {
-	capabilities = capabilities
-})
-vim.lsp.config('ruff', {
-	capabilities = capabilities
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			runtime = { version = "LuaJIT" },
+			workspace = {
+				checkThirdParty = false,
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			diagnostics = { globals = { "vim" } },
+			telemetry = { enable = false },
+		}
+	}
 })
 
-vim.lsp.enable({ "astro", "eslint", "dockerls", "clangd", "svelte", "ty", "ruff", "texlab", "cmake" })
+vim.lsp.enable(
+	{ "lua_ls", "astro", "eslint", "dockerls", "clangd", "svelte", "ty", "ruff", "texlab", "cmake", "glsl_analyzer" }
+)
 
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
@@ -84,7 +98,7 @@ vim.diagnostic.config({
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 500
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  callback = function()
-	  vim.diagnostic.open_float(nil, { focus = false })
-  end,
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
 })

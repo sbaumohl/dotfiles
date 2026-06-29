@@ -1,5 +1,5 @@
 -- lua line
-require("lualine").setup()
+require("lualine").setup({})
 
 -- lsp manager
 require("mason").setup()
@@ -43,17 +43,22 @@ vim.keymap.set("n", "<leader>tc", NvimTreeAPI.tree.close)
 -- undo tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
--- which-key mappings
-require("mini.icons").setup() -- enable extra icons
+-- Persistence (session restore)
+vim.keymap.set("n", "<leader>qs", function()
+	require("persistence").load()
+end, { desc = "Restore Session" })
+
+-- which-key labels for keymaps defined elsewhere (telescope.lua / above).
+-- Pure descriptions, not mappings. Keys whose keymap already sets `desc`
+-- (e.g. <leader>qs) are omitted since which-key reads that automatically.
 local wk = require("which-key")
 wk.add({
-	{ "<leader>ff", "<cmd>Telescope git_files<cr>", desc = "Search Git Files", mode = "n" },
-	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer", mode = "n" },
-	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", mode = "n" },
-	{ "<leader>fa", "<cmd>Telescope find_files<cr>", desc = "Search All Files", mode = "n" },
-	{ "<leader>e", desc = "Harpoon Quick Menu", mode = "n" },
-	{ "<leader>tc", desc = "Close NvimTree", mode = "n" },
-	{ "<leader>u", desc = "Open Undotree", mode = "n" },
+	{ "<leader>ff", desc = "Search Git Files", mode = "n" },
+	{ "<leader>fb", desc = "Find Buffer",      mode = "n" },
+	{ "<leader>fg", desc = "Live Grep",        mode = "n" },
+	{ "<leader>fa", desc = "Search All Files", mode = "n" },
+	{ "<leader>tc", desc = "Close NvimTree",   mode = "n" },
+	{ "<leader>u",  desc = "Open Undotree",    mode = "n" },
 })
 
-
+require("hlargs").setup({})

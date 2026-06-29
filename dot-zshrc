@@ -10,7 +10,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias e="nvim"
 
-eval $(keychain --eval --quiet ~/.ssh/github001 ~/.ssh/id_ed25519)
+eval $(keychain --eval --quiet ~/.ssh/github002 ~/.ssh/id_ed25519)
 
 export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc 
@@ -23,6 +23,7 @@ export NVM_DIR="$HOME/.config/nvm"
 
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -131,3 +132,5 @@ path=('/home/sam/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"

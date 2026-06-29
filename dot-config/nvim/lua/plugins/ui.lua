@@ -1,7 +1,7 @@
 return {
 	{ "echasnovski/mini.nvim", version = "*" },
 	{
-		"romgrk/barbar.nvim", -- tabline
+		"romgrk/barbar.nvim",     -- tabline
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- for git status
 			"nvim-tree/nvim-web-devicons", -- for file icons
@@ -58,4 +58,11 @@ return {
 			-- add any custom options here
 		},
 	},
+	{
+		'mcauley-penney/visual-whitespace.nvim',
+		event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
+		opts = {
+			-- your opts here ...
+		}
+	}
 }
