@@ -1,6 +1,10 @@
 return {
 	{ "echasnovski/mini.nvim", version = "*" },
 	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
 		"romgrk/barbar.nvim",     -- tabline
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- for git status

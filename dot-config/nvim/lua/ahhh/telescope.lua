@@ -12,6 +12,9 @@ require("telescope").setup({
 -- load the native fzf sorter (compiled C) so fuzzy matching is fast
 require("telescope").load_extension("fzf")
 
+-- show fidget notification history in telescope
+require("telescope").load_extension("fidget")
+
 local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>fa", builtin.find_files, {})

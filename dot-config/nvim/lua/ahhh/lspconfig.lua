@@ -85,14 +85,16 @@ vim.lsp.enable(
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = { current_line = true },
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = '',
+			[vim.diagnostic.severity.WARN] = '',
+			[vim.diagnostic.severity.HINT] = '',
+			[vim.diagnostic.severity.INFO] = ' ',
+		},
+	},
 })
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
@@ -101,4 +103,23 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	callback = function()
 		vim.diagnostic.open_float(nil, { focus = false })
 	end,
+})
+
+require("lsp-endhints").setup({
+	icons = {
+		type = "󰜁 ",
+		parameter = "󰏪 ",
+		offspec = " ", -- hint kind not defined in official LSP spec
+		unknown = " ", -- hint kind is nil
+	},
+	label = {
+		truncateAtChars = 20,
+		padding = 1,
+		marginLeft = 0,
+		sameKindSeparator = ", ",
+	},
+	extmark = {
+		priority = 50,
+	},
+	autoEnableHints = true,
 })
