@@ -3,4 +3,4 @@ require("ahhh.lspconfig")
 require("ahhh.telescope")
 require("ahhh.conform")
 require("ahhh.setup")
--- TODO: nvim-lint setup
+require("ahhh.lint")

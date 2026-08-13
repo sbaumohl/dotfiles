@@ -1,5 +1,4 @@
 return {
-	{ "echasnovski/mini.nvim", version = "*" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

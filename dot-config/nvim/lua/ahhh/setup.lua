@@ -3,6 +3,9 @@ require("lualine").setup({})
 
 -- lsp manager
 require("mason").setup()
+require("mason-tool-installer").setup({
+	ensure_installed = { "shellcheck", "markdownlint" },
+})
 
 -- comment default mappings
 require("Comment").setup()

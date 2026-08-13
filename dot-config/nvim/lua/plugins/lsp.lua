@@ -11,6 +11,10 @@ return {
 	},
 	-- mason lsp install manager
 	"mason-org/mason.nvim",
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = { "mason-org/mason.nvim" },
+	},
 	"neovim/nvim-lspconfig",
 	"mfussenegger/nvim-lint",
 	{

@@ -6,7 +6,7 @@ local harpoon_mark = require("harpoon.mark")
 
 -- Terminal navigation
 vim.keymap.set("n", "<leader>ht", function()
-	harpoon_term.gotoTerminal(1)
+    harpoon_term.gotoTerminal(1)
 end, { noremap = true, silent = false })
 
 -- Buffer Management
@@ -15,9 +15,9 @@ vim.keymap.set("n", "<leader>e", harpoon_ui.toggle_quick_menu)
 
 -- Cycling
 vim.keymap.set("n", "<leader>hj", function()
-	harpoon_ui.nav_next()
+    harpoon_ui.nav_next()
 end, { noremap = true, silent = false })
 
 vim.keymap.set("n", "<leader>hk", function()
-	harpoon_ui.nav_prev()
+    harpoon_ui.nav_prev()
 end, { noremap = true, silent = false })
