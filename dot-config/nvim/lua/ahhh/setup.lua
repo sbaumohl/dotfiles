@@ -42,6 +42,10 @@ map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 local NvimTreeAPI = require("nvim-tree.api")
 vim.keymap.set("n", "<leader>to", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader>tc", NvimTreeAPI.tree.close)
+vim.keymap.set("n", "<leader>tf", function()
+	-- update_root so it still works when the buffer lives outside the tree root
+	NvimTreeAPI.tree.find_file({ open = true, focus = true, update_root = true })
+end, { desc = "Reveal Buffer in NvimTree" })
 
 -- undo tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

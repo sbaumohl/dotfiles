@@ -1,0 +1,7 @@
+# Everything here is plaintext secrets: ignore the lot...
+*
+
+# ...except the tooling and the age-encrypted bundle it produces.
+!.gitignore
+!secrets.sh
+!secrets.tar.zst.age
